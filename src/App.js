@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './components/Home';
+import NewsDetails from './components/NewsDetails';
 
-function App() {
+const App = () => {
+  const [selects, setSelects] = useState('business'); // Initial category
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header selects={selects} setSelects={setSelects} />
+      <Routes>
+        <Route path="/" element={<Home selects={selects} />} />
+        <Route path="/news/:id" element={<NewsDetails />} />
+        <Route path="/about" element={<div>About Page</div>} />
+        <Route path="/contact" element={<div>Contact Page</div>} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

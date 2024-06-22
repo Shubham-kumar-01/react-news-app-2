@@ -1,0 +1,24 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 32px;
+    height: 10vh;
+    
+}
+.main button{
+    border: none;
+    color: gray;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.active button{
+    color: black;
+    /* background-color: gray; */
+}
+.category select{
+    width: 120px;
+    text-align: center;
+    height: 30px;
+    outline: none;
+}
